@@ -1,0 +1,8 @@
+1. std::vector based attributes:
+- Semantics of arithmetic operation are consequence of std::vector template
+- Memory allocation and exception handling is done by std::vector
+
+2. Template must be constrained based in the SFINAE (Substitution Failure Is Not An Error). See constraint on
+operator + :
+    template<std::__enable_if_t<std::is_arithmetic<T>::value, bool>>
+    //It is constrained to be compiled only for arithmetic objects.
